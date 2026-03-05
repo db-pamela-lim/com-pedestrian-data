@@ -1,0 +1,47 @@
+# Databricks App configuration for City of Melbourne Pedestrian Data Chat
+# Deploy with: databricks apps deploy . (from repo root or app directory)
+
+name: com-pedestrian-chat
+version: 1.0.0
+description: "Chat interface for City of Melbourne Communications team to query pedestrian data via Genie"
+
+# Build: frontend is built separately; backend serves frontend/dist
+# Run: backend serves API and static React build
+entrypoint: backend/main.py
+
+runtime:
+  type: python
+  version: "3.10"
+
+dependencies:
+  - flask>=3.0.0
+  - flask-cors>=4.0.0
+  - requests>=2.31.0
+
+resources:
+  - backend/
+  - frontend/dist/
+
+# Genie space that houses the pedestrian data (Data/ folder)
+# Set in Databricks App secrets or environment
+secrets:
+  databricks:
+    - host
+    - token
+  # Optional: if not in secrets, use env GENIE_SPACE_ID
+  # genie:
+  #   - space_id
+
+# Permissions for Genie and SQL warehouse
+permissions:
+  - workspace.read
+  - catalog.read
+
+metadata:
+  author: "City of Melbourne"
+  category: "Analytics"
+  tags:
+    - "pedestrian"
+    - "genie"
+    - "communications"
+    - "melbourne"

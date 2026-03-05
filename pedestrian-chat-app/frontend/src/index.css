@@ -1,0 +1,52 @@
+:root {
+  --com-blue: #006994;
+  --com-blue-dark: #004d6d;
+  --com-gold: #c4a747;
+  --surface: #f7f8f9;
+  --surface-elevated: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #5c5c5c;
+  --border: #e2e4e8;
+  --user-bubble: #006994;
+  --assistant-bubble: #e8eef1;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+textarea {
+  font-family: inherit;
+}

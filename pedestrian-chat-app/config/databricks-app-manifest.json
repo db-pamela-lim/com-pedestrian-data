@@ -1,0 +1,31 @@
+{
+  "name": "com-pedestrian-chat",
+  "version": "1.0.0",
+  "description": "Chat interface for City of Melbourne Communications team to query pedestrian data via Genie",
+  "main": "backend/main.py",
+  "type": "python",
+  "entrypoint": "backend/main.py",
+  "runtime": {
+    "type": "python",
+    "version": "3.10"
+  },
+  "requirements": [
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "requests>=2.31.0"
+  ],
+  "resources": [
+    "backend/",
+    "frontend/dist/"
+  ],
+  "secrets": [
+    {
+      "name": "databricks",
+      "keys": ["host", "token"]
+    }
+  ],
+  "permissions": [
+    "workspace.read",
+    "catalog.read"
+  ]
+}
